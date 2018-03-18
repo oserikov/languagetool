@@ -12,6 +12,7 @@ import java.util.List;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
+import static spark.Spark.threadPool;
 
 @Slf4j
 public class LanguageToolApiController {
@@ -23,7 +24,7 @@ public class LanguageToolApiController {
         log.info("BEFORE init()");
         mapper = new ObjectMapper();
         languageToolApiService = new LanguageToolApiServiceImpl();
-
+        threadPool(200, 25, 60000);
         setUpEndPoints();
         log.info("AFTER init()");
     }
@@ -42,7 +43,8 @@ public class LanguageToolApiController {
                 responseString = mapper.writeValueAsString(languages);
                 responseStatus = HttpStatus.OK_200;
             } catch (Exception e) {
-                responseString = null; // Does it works OK?
+                log.error("Error!", e);
+                responseString = "";
                 responseStatus = HttpStatus.BAD_REQUEST_400;
             }
             response.status(responseStatus);
@@ -93,7 +95,8 @@ public class LanguageToolApiController {
                 responseString = mapper.writeValueAsString(checkResultDTO);
                 responseStatus = HttpStatus.OK_200;
             } catch (Exception e) {
-                responseString = null; // Does it works OK?
+                log.error("Error!", e);
+                responseString = "";
                 responseStatus = HttpStatus.BAD_REQUEST_400;
             }
 
