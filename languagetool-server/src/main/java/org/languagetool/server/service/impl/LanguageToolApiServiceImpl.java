@@ -15,7 +15,6 @@ import org.languagetool.server.service.LanguageToolApiService;
 import org.languagetool.server.UserLimits;
 import org.languagetool.tools.ContextTools;
 import org.languagetool.tools.Tools;
-import org.springframework.stereotype.Service;
 
 
 import java.io.IOException;
@@ -25,7 +24,6 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.*;
 
-@Service("LanguageToolApiService")
 @Slf4j
 public class LanguageToolApiServiceImpl implements LanguageToolApiService {
 
