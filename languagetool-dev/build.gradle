@@ -1,5 +1,8 @@
 
 description = 'LanguageTool development tools'
+sourceSets.test.output.resourcesDir = 'build/classes/java/test'
+
+
 dependencies {
   compile project(':language-all')
   compile project(':languagetool-commandline')

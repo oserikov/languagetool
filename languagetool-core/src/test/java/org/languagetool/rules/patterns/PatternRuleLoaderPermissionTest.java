@@ -21,6 +21,7 @@ package org.languagetool.rules.patterns;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 //import org.junit.Ignore;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -44,7 +45,7 @@ public class PatternRuleLoaderPermissionTest {
     System.setSecurityManager(new SecurityManager());
   }
 
-  //@Ignore("doesn't work with Gradle, see http://stackoverflow.com/questions/32584997/")
+  @Ignore("doesn't work with Gradle, see http://stackoverflow.com/questions/32584997/")
   @Test
   public void testPermissionManager() throws Exception {
     try {
