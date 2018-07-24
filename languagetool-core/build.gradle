@@ -35,6 +35,3 @@ artifacts {
     tests testJar
 }
 
-test {
-    exclude 'org/languagetool/rules/patterns/PatternRuleLoaderPermissionTest.class'
-}
